@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
+import { AngularFireModule } from 'angularfire2';
+
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 import { Store } from '@ngrx/store';
@@ -31,6 +33,8 @@ import { AppComponent } from './app.component';
 
 import { AppState } from './reducers';
 
+import { firebaseConfig } from '../firebase.config';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +47,7 @@ import { AppState } from './reducers';
     HttpModule,
     APP_IMPORTS,
     RouterModule.forRoot(routes, { useHash: false, preloadingStrategy: PreloadAllModules }),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent],
