@@ -12,6 +12,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
+import { MdSidenavModule, MdCardModule, MdToolbarModule, MdIconModule,
+  MdCoreModule, MdMenuModule, MdCommonModule, MdInputModule, StyleModule,
+  MaterialModule } from '@angular/material';
+
 import { AngularFireModule } from 'angularfire2';
 
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
@@ -46,8 +50,11 @@ import { firebaseConfig } from '../firebase.config';
     DEV_SERVER ? [BrowserAnimationsModule, BrowserTransferStateModule] : [],
     HttpModule,
     APP_IMPORTS,
+    MaterialModule, StyleModule,
     RouterModule.forRoot(routes, { useHash: false, preloadingStrategy: PreloadAllModules }),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    MdSidenavModule, MdCardModule, MdToolbarModule, MdIconModule,
+    MdCoreModule, MdMenuModule, MdCommonModule, MdInputModule
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent],
