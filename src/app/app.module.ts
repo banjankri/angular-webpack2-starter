@@ -14,7 +14,7 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import { MdSidenavModule, MdCardModule, MdToolbarModule, MdIconModule,
   MdCoreModule, MdMenuModule, MdCommonModule, MdInputModule, StyleModule,
-  MaterialModule } from '@angular/material';
+  MaterialModule, MdButtonModule } from '@angular/material';
 
 import { AngularFireModule } from 'angularfire2';
 
@@ -50,11 +50,11 @@ import { firebaseConfig } from '../firebase.config';
     DEV_SERVER ? [BrowserAnimationsModule, BrowserTransferStateModule] : [],
     HttpModule,
     APP_IMPORTS,
-    MaterialModule, StyleModule,
     RouterModule.forRoot(routes, { useHash: false, preloadingStrategy: PreloadAllModules }),
     AngularFireModule.initializeApp(firebaseConfig),
+    MaterialModule, StyleModule,
     MdSidenavModule, MdCardModule, MdToolbarModule, MdIconModule,
-    MdCoreModule, MdMenuModule, MdCommonModule, MdInputModule
+    MdCoreModule, MdMenuModule, MdCommonModule, MdInputModule, MdButtonModule
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent],
