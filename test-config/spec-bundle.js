@@ -35,9 +35,12 @@ require('rxjs/Rx');
 const testing = require('@angular/core/testing');
 const browser = require('@angular/platform-browser-dynamic/testing');
 
+//angular material
+require('hammerjs');
+
 testing.getTestBed().initTestEnvironment(
-  browser.BrowserDynamicTestingModule,
-  browser.platformBrowserDynamicTesting()
+    browser.BrowserDynamicTestingModule,
+    browser.platformBrowserDynamicTesting()
 );
 
 /*
@@ -57,7 +60,7 @@ const testContext = require.context('../src/app', true, /\.spec\.ts/);
  * loop and require those spec files here
  */
 function requireAll(requireContext) {
-  return requireContext.keys().map(requireContext);
+    return requireContext.keys().map(requireContext);
 }
 
 // requires and returns all modules that match
