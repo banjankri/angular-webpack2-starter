@@ -52,7 +52,7 @@ import { firebaseConfig } from '../firebase.config';
     APP_IMPORTS,
     RouterModule.forRoot(routes, { useHash: false, preloadingStrategy: PreloadAllModules }),
     AngularFireModule.initializeApp(firebaseConfig),
-    MaterialModule, StyleModule,
+    StyleModule,
     MdSidenavModule, MdCardModule, MdToolbarModule, MdIconModule,
     MdCoreModule, MdMenuModule, MdCommonModule, MdInputModule, MdButtonModule
   ],
