@@ -63,13 +63,41 @@ describe('Dashboard Component', () => {
         actions = fixture.debugElement.injector.get(UserActions);
     }));
 
-    it('should contain welcome text', async(() => {
+    it('should contain welcome text', () => {
+        // then
         expect(fixture.nativeElement).toContainText('Welcome to the Dashboard');
-    }));
+    });
 
-    it('should present user name in the input if present', async(() => {
+    it('should present user name in the input if present', () => {
+        // given
         let input = fixture.debugElement.query(By.css('input'));
 
+        // then
         expect(input.nativeElement.value).toEqual('Artur');
-    }));
+    });
+
+    it('should clear the input value when clear button is hit', () => {
+        // given
+        let input = fixture.debugElement.query(By.css('input')),
+            clearBtn = fixture.debugElement.query(By.css('.clear-button'));
+
+        // when
+        clearBtn.triggerEventHandler('click', {});
+
+        // then
+        expect(input.nativeElement.value).toEqual('');
+    });
+
+    it('should dispatch an user edit action when clear button is hit', () => {
+        // given
+        spyOn(store, 'dispatch');
+        let input = fixture.debugElement.query(By.css('input')),
+            clearBtn = fixture.debugElement.query(By.css('.clear-button'));
+
+        // when
+        clearBtn.triggerEventHandler('click', {});
+
+        // then
+        expect(store.dispatch).toHaveBeenCalledWith({ type: '[User] Edit User', payload: { name: '' } });
+    });
 });
