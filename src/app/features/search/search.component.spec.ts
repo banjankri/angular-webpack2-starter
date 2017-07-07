@@ -8,7 +8,7 @@ import { MaterialModule } from '@angular/material';
 
 import { SearchComponent } from './search.component';
 
-describe('App Component', () => {
+describe('Search Component', () => {
 
     @Component({
         template: '<aya-search value="initial"></aya-search>'
@@ -36,7 +36,7 @@ describe('App Component', () => {
         expect(input.nativeElement.placeholder).toEqual('What plant are you after?');
     }));
 
-    it('should be possible to pass in an initial value into the component', fakeAsync(() => {
+    it('should accept initial value as parameter', fakeAsync(() => {
         const fixture = TestBed.createComponent(TestComponent);
         fixture.detectChanges();
         tick();

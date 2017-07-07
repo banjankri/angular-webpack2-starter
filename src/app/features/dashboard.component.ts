@@ -16,54 +16,56 @@ import { User } from '../user/user.model';
 })
 
 export class DashboardComponent implements OnDestroy, OnInit {
-  destroyed$: Subject<any> = new Subject<any>();
-  form: FormGroup;
-  nameLabel = 'Enter your name';
-  testSub$: Observable<string>;
-  user: User;
-  user$: Observable<User>;
-  constructor(
-    private fb: FormBuilder,
-    private http: TransferHttp,
-    private store: Store<AppState>,
-    private userActions: UserActions,
-  ) {
-    this.form = fb.group({
-      name: ''
-    });
-    this.user$ = this.store.select(state => state.user.user);
-    this.user$.takeUntil(this.destroyed$)
-      .subscribe(user => { this.user = user; });
-  }
 
-  ngOnInit() {
-    this.form.get('name').setValue(this.user.name);
-    if (UNIVERSAL) {
-      this.testSub$ = this.http.get('http://localhost:8000/data').map(data => {
-        return `${data.greeting} ${data.name}`;
+    destroyed$: Subject<any> = new Subject<any>();
+    form: FormGroup;
+    nameLabel = 'Enter your name';
+    testSub$: Observable<string>;
+    user: User;
+    user$: Observable<User>;
+
+    constructor(
+      private fb: FormBuilder,
+      private http: TransferHttp,
+      private store: Store<AppState>,
+      private userActions: UserActions,
+    ) {
+      this.form = fb.group({
+        name: ''
       });
+      this.user$ = this.store.select(state => state.user.user);
+      this.user$.takeUntil(this.destroyed$)
+        .subscribe(user => { this.user = user; });
     }
-  }
 
-  clearName() {
-    this.store.dispatch(this.userActions.editUser(
-      Object.assign({}, this.user, { name: '' }
-      )));
+    ngOnInit() {
+      this.form.get('name').setValue(this.user.name);
+      if (UNIVERSAL) {
+        this.testSub$ = this.http.get('http://localhost:8000/data').map(data => {
+          return `${data.greeting} ${data.name}`;
+        });
+      }
+    }
 
-    this.form.get('name').setValue('');
-  }
+    clearName() {
+      this.store.dispatch(this.userActions.editUser(
+        Object.assign({}, this.user, { name: '' }
+        )));
 
-  logout() {
-    this.store.dispatch(this.userActions.logout());
-  }
+      this.form.get('name').setValue('');
+    }
 
-  submitState() {
-    this.store.dispatch(this.userActions.editUser(
-      Object.assign({}, this.user, { name: this.form.get('name').value }
-      )));
-  }
+    logout() {
+      this.store.dispatch(this.userActions.logout());
+    }
 
-  ngOnDestroy() {
-    this.destroyed$.next();
-  }
+    submitState() {
+      this.store.dispatch(this.userActions.editUser(
+        Object.assign({}, this.user, { name: this.form.get('name').value }
+        )));
+    }
+
+    ngOnDestroy() {
+      this.destroyed$.next();
+    }
 }

@@ -6,7 +6,6 @@ import { Action } from '@ngrx/store';
 import { User } from './user.model';
 
 @Injectable()
-
 export class UserActions {
 
   static EDIT_USER = '[User] Edit User';
