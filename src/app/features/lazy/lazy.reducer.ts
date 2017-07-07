@@ -1,6 +1,6 @@
 import { Store, ActionReducer, Action } from '@ngrx/store';
 
-import { AppState, createNewRootReducer } from './../../reducers/index';
+import { AppState, createNewRootReducer } from './../../reducers';
 
 import { LazyActions } from './lazy.actions';
 
@@ -8,11 +8,11 @@ export interface LazyState {
     counter: number;
 }
 
-const initialState: LazyState = {
+const INITIAL_STATE: LazyState = {
     counter: 0
 };
 
-export function lazyReducer(state: LazyState = initialState, action: Action) {
+export function lazyReducer(state: LazyState = INITIAL_STATE, action: Action) {
     switch (action.type) {
 
         case LazyActions.DECREMENT:

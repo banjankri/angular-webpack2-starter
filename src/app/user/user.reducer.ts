@@ -10,13 +10,13 @@ export interface UserState {
   loaded: boolean;
 }
 
-export const initialState: UserState = {
+export const INITIAL_STATE: UserState = {
   user: { name: 'Angular User' },
   loading: false,
   loaded: true,
 };
 
-export function userReducer(state = initialState, action: Action): UserState {
+export function userReducer(state = INITIAL_STATE, action: Action): UserState {
   switch (action.type) {
 
     case UserActions.EDIT_USER: {
