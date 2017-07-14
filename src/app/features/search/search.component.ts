@@ -1,4 +1,4 @@
-import { OnInit, Component, Input } from '@angular/core';
+import { OnInit, Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'aya-search',
@@ -7,12 +7,19 @@ import { OnInit, Component, Input } from '@angular/core';
 export class SearchComponent implements OnInit {
 
     @Input()
-    public value;
+    public value: string;
+
+    @Output()
+    public search: EventEmitter<any> = new EventEmitter();
 
     constructor() {
         console.log('search component!');
     }
 
     ngOnInit(): void {
+    }
+
+    onClick(searchTerm: string): void {
+        this.search.emit({searchTerm});
     }
 }

@@ -3,9 +3,11 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { TransferHttp } from '../../modules/transfer-http/transfer-http';
+import { go } from '@ngrx/router-store';
 
 import { AppState } from '../reducers';
 import { Store } from '@ngrx/store';
+import { ActivityActions } from './../activity/activity.actions';
 import { UserActions } from '../user/user.actions';
 import { User } from '../user/user.model';
 
@@ -29,6 +31,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
       private http: TransferHttp,
       private store: Store<AppState>,
       private userActions: UserActions,
+      private activityActions: ActivityActions,
     ) {
       this.form = fb.group({
         name: ''
@@ -63,6 +66,11 @@ export class DashboardComponent implements OnDestroy, OnInit {
       this.store.dispatch(this.userActions.editUser(
         Object.assign({}, this.user, { name: this.form.get('name').value }
         )));
+    }
+
+    public searchTerm($event): void {
+      this.store.dispatch(this.activityActions.search($event.searchTerm));
+      this.store.dispatch(go(['/search'], { query: $event.searchTerm }));
     }
 
     ngOnDestroy() {

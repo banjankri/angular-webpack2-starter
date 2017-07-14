@@ -1,3 +1,6 @@
 <md-input-container>
-    <input mdInput type="text" placeholder="What plant are you after?" [value]="value">
+    <input mdInput type="text" placeholder="What plant are you after?" [value]="value" #searchTerm>
 </md-input-container>
+<button type="button" md-icon-button (click)="onClick(searchTerm.value)">
+    <md-icon>search</md-icon>
+</button>
