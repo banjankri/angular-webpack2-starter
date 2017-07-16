@@ -36,6 +36,9 @@ describe('Dashboard Component', () => {
                 },
                 loading: false,
                 loaded: true
+            },
+            activitiesState: {
+                activities: []
             }
         };
 
