@@ -1,0 +1,13 @@
+{
+    "activities": {
+        "1": {
+            "name": "First one"
+        },
+        "2": {
+            "name": "Second one"
+        },
+        "3": {
+            "name": "Third one"
+        }
+    }
+}
