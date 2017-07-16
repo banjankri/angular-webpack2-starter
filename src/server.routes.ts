@@ -4,5 +4,6 @@ export const routes: string[] = [
   '',
   'lazy',
   'sync',
+  'search',
   'wronglink'
 ];
