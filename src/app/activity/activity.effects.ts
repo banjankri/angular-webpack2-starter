@@ -8,7 +8,6 @@ import { Injectable } from '@angular/core';
 import { Activity } from './activity.model';
 import { ActivityService } from './activity.service';
 import { ActivityActions } from './activity.actions';
-import { ApplicationState } from './../models/application.state';
 
 @Injectable()
 export class ActivityEffects {
