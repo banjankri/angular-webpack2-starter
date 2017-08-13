@@ -13,6 +13,7 @@ import { TransferHttpModule } from '../modules/transfer-http/transfer-http.modul
 import { rootReducer } from './reducers';
 import { StoreDevToolsModule } from './features/store-devtools.module';
 import { UserEffects } from './user/user.effects';
+import { ActivityEffects } from './activity/activity.effects';
 
 const STORE_DEV_TOOLS_IMPORTS = [];
 if (ENV === 'development' && !AOT &&
@@ -28,6 +29,7 @@ if (ENV === 'development' && !AOT &&
 
 export const APP_IMPORTS = [
   EffectsModule.run(UserEffects),
+  EffectsModule.run(ActivityEffects),
   MaterialModule,
   ReactiveFormsModule,
   RouterStoreModule.connectRouter(),
