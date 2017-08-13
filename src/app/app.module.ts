@@ -17,6 +17,7 @@ import { MdSidenavModule, MdCardModule, MdToolbarModule, MdIconModule,
   MaterialModule, MdButtonModule } from '@angular/material';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
@@ -52,6 +53,7 @@ import { firebaseConfig } from '../firebase.config';
     APP_IMPORTS,
     RouterModule.forRoot(routes, { useHash: false, preloadingStrategy: PreloadAllModules }),
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
     StyleModule,
     MdSidenavModule, MdCardModule, MdToolbarModule, MdIconModule,
     MdCoreModule, MdMenuModule, MdCommonModule, MdInputModule, MdButtonModule
