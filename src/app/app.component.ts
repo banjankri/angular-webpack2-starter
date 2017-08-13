@@ -1,9 +1,11 @@
+import { LoginComponent } from './features/auth/login.component';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TransferState } from '../modules/transfer-state/transfer-state';
 
 import { views } from './app-nav-views';
 import { MOBILE } from './services/constants';
+import { MdDialog } from '@angular/material';
 
 @Component({
   selector: 'my-app',
@@ -22,11 +24,17 @@ export class AppComponent implements OnInit {
   constructor(
     private cache: TransferState,
     public route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    public dialog: MdDialog
   ) { }
 
   ngOnInit() {
     this.cache.set('cached', true);
+  }
+
+  login() {
+    this.dialog.open(LoginComponent, {
+    });
   }
 
   activateEvent(event) {
