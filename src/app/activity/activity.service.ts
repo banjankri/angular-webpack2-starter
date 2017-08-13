@@ -10,13 +10,17 @@ export class ActivityService {
     }
 
     search(searchTerm: string): FirebaseListObservable<Activity[]> {
-        return this.db.list('/actions', {
-            query: {
-                equalTo: {
-                    value: searchTerm,
-                    key: 'name'
-                }
-            }
+        let query: {equalTo?} = {};
+
+        if (searchTerm) {
+            query.equalTo = {
+                value: searchTerm ? searchTerm : null,
+                key: 'name'
+            };
+        }
+
+        return this.db.list('/activities', {
+            query
         });
     }
 }
