@@ -15,14 +15,14 @@ export class MembersComponent implements OnInit {
         return '';
     }
 
-  name: any;
+  authState: any;
   state: string = '';
 
   constructor(public af: AngularFireAuth, private router: Router) {
 
     this.af.authState.subscribe(auth => {
       if (auth) {
-        this.name = auth;
+        this.authState = auth;
       }
     });
 
