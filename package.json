@@ -87,6 +87,7 @@
         "universal:watch": "npm run build:universal && npm-run-all -p -r watch:universal server:universal"
     },
     "dependencies": {
+        "@agm/core": "0.17.0",
         "@angular/animations": "4.4.1",
         "@angular/cdk": "2.0.0-beta.10",
         "@angular/common": "4.4.1",
