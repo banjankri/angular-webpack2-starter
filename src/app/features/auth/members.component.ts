@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { moveIn, fallIn, moveInLeft } from '../../router.animations';
 
 @Component({
-  selector: 'app-other',
-  templateUrl: './other.component.html',
-  styleUrls: ['./other.component.css'],
+  selector: 'app-members',
+  templateUrl: './members.component.html',
+  styleUrls: ['./members.component.css'],
   animations: [moveIn(), fallIn(), moveInLeft()]
 })
 export class MembersComponent implements OnInit {

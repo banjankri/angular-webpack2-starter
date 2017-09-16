@@ -1,4 +1,4 @@
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
@@ -31,6 +31,7 @@ export const APP_IMPORTS = [
   EffectsModule.run(UserEffects),
   EffectsModule.run(ActivityEffects),
   MaterialModule,
+  FormsModule,
   ReactiveFormsModule,
   RouterStoreModule.connectRouter(),
   StoreModule.provideStore(rootReducer),

@@ -20,8 +20,7 @@ export class LoginComponent {
 
     error: any;
 
-    constructor(public dialogRef: MdDialogRef<LoginComponent>,
-        public af: AngularFireAuth, private router: Router) {
+    constructor(public af: AngularFireAuth, private router: Router) {
             this.af.authState.subscribe(auth => {
                 if (auth) {
                   this.router.navigateByUrl('/members');
@@ -40,7 +39,7 @@ export class LoginComponent {
       }
 
       loginGoogle() {
-        this.af.auth.signInWithPopup(new firebaseApp.auth.FacebookAuthProvider()).then(
+        this.af.auth.signInWithPopup(new firebaseApp.auth.GoogleAuthProvider()).then(
             (success) => {
             this.router.navigate(['/members']);
           }).catch(

@@ -1,3 +1,5 @@
+import { AngularFireAuth } from 'angularfire2/auth';
+
 import { ActivityService } from './activity/activity.service';
 import { ActivityActions } from './activity/activity.actions';
 import { UserActions } from './user/user.actions';
@@ -9,5 +11,6 @@ export const APP_PROVIDERS = [
   UserService,
   ActivityActions,
   ActivityService,
-  AuthGuard
+  AuthGuard,
+  AngularFireAuth
 ];
