@@ -39,6 +39,9 @@ describe('Dashboard Component', () => {
             },
             activitiesState: {
                 activities: []
+            },
+            plantsState: {
+                plants: []
             }
         };
 

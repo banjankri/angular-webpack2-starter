@@ -1,0 +1,4 @@
+<div>
+    <h1>Plants</h1>
+    <p *ngFor="let plant of plants$ | async">{{plant.canonicalName}} {{plant.class}}</p>
+</div>

@@ -14,6 +14,7 @@ import { rootReducer } from './reducers';
 import { StoreDevToolsModule } from './features/store-devtools.module';
 import { UserEffects } from './user/user.effects';
 import { ActivityEffects } from './activity/activity.effects';
+import { PlantEffects } from './plant/plant.effects';
 
 const STORE_DEV_TOOLS_IMPORTS = [];
 if (ENV === 'development' && !AOT &&
@@ -30,6 +31,7 @@ if (ENV === 'development' && !AOT &&
 export const APP_IMPORTS = [
   EffectsModule.run(UserEffects),
   EffectsModule.run(ActivityEffects),
+  EffectsModule.run(PlantEffects),
   MaterialModule,
   FormsModule,
   ReactiveFormsModule,

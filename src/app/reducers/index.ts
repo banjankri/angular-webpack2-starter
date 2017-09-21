@@ -1,3 +1,4 @@
+import { PlantsState } from './../plant/plant.reducer';
 import { compose } from '@ngrx/core/compose';
 import { ActionReducer, combineReducers } from '@ngrx/store';
 import { storeFreeze } from 'ngrx-store-freeze';
@@ -6,22 +7,26 @@ import { routerReducer, RouterState } from '@ngrx/router-store';
 
 import * as fromUser from '../user/user.reducer';
 import * as activities from '../activity/activity.reducer';
+import * as plants from '../plant/plant.reducer';
 
 const modules = {
   'user': fromUser,
-  'activitiesState': activities
+  'activitiesState': activities,
+  'plantsState': plants
 };
 
 export interface AppState {
   router: RouterState;
   user: fromUser.UserState;
   activitiesState: activities.ActivitiesState;
+  plantsState: plants.PlantsState;
 }
 
 export const syncReducers = {
   router: routerReducer,
   user: fromUser.userReducer,
-  activitiesState: activities.activityReducer
+  activitiesState: activities.activityReducer,
+  plantsState: plants.plantReducer
 };
 
 const deepCombineReducers = (allReducers: any) => {

@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { routes } from './activities-list.routing';
+import { routes } from './plants-list.routing';
 
-import { ActivitiesListComponent } from './activities-list.component';
+import { PlantsListComponent } from './plants-list.component';
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { ActivitiesListComponent } from './activities-list.component';
         RouterModule.forChild(routes),
     ],
     declarations: [
-        ActivitiesListComponent
+        PlantsListComponent
     ]
 })
 export class ActivitiesListModule { }

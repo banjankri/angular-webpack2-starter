@@ -1,3 +1,5 @@
+import { PlantService } from './plant/plant.service';
+import { PlantActions } from './plant/plant.actions';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { ActivityService } from './activity/activity.service';
@@ -14,5 +16,7 @@ export const APP_PROVIDERS = [
   ActivityService,
   AuthGuard,
   AngularFireAuth,
-  GbifDataSourceService
+  GbifDataSourceService,
+  PlantActions,
+  PlantService
 ];

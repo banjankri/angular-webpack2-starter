@@ -1,3 +1,4 @@
+import { PlantActions } from './../plant/plant.actions';
 import { GbifDataSourceService } from './../services/data-sources/gbif.datasource.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -35,7 +36,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
       private http: TransferHttp,
       private store: Store<AppState>,
       private userActions: UserActions,
-      private activityActions: ActivityActions,
+      private plantActions: PlantActions,
       private gbifDS: GbifDataSourceService,
     ) {
       this.form = fb.group({
@@ -74,7 +75,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
 
     public searchTerm($event): void {
-      this.store.dispatch(this.activityActions.search($event.searchTerm));
+      this.store.dispatch(this.plantActions.search($event.searchTerm));
       this.store.dispatch(go(['/search'], { query: $event.searchTerm }));
     }
 
