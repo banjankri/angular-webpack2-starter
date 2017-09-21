@@ -7,6 +7,7 @@ import { NotFound404Component } from './not-found404.component';
 import { authRoutes } from './features/auth/auth.routing';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   ...authRoutes,
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' },
   { path: 'lazy', loadChildren: './features/lazy/index#LazyModule' },
