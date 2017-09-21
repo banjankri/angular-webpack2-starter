@@ -1,3 +1,4 @@
+import { GbifDataSourceService } from './../services/data-sources/gbif.datasource.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Subject } from 'rxjs/Subject';
@@ -14,7 +15,7 @@ import { User } from '../user/user.model';
 @Component({
   selector: 'my-dashboard',
   templateUrl: './dashboard.component.html',
-  styles: [`#my-logout-button { background: #F44336 }`]
+  styleUrls: ['./dashboard.component.css'],
 })
 
 export class DashboardComponent implements OnDestroy, OnInit {
@@ -26,12 +27,16 @@ export class DashboardComponent implements OnDestroy, OnInit {
     user: User;
     user$: Observable<User>;
 
+    lat: number = 51.678418;
+    lng: number = 7.809007;
+
     constructor(
       private fb: FormBuilder,
       private http: TransferHttp,
       private store: Store<AppState>,
       private userActions: UserActions,
       private activityActions: ActivityActions,
+      private gbifDS: GbifDataSourceService,
     ) {
       this.form = fb.group({
         name: ''
