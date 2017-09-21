@@ -11,8 +11,8 @@ export class GbifDataSourceService {
 
     getEaxmpleOccurence() {
         this.http.get(GbifDataSourceService.GBIF_API_URL
-            + `occurence/search?q=lophophora%20williamsi`)
-        .map((res) => { console.error(res); return res.json(); }).subscribe();
+            + `occurrence/search?q=lophophora`)
+        .map((res) => { console.error(res.json()); return res.json(); }).subscribe();
     }
 
     static get GBIF_API_URL(): string {
