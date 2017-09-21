@@ -282,6 +282,10 @@ const clientConfig = function webpackConfig(): WebpackConfig {
     historyApiFallback: {
       disableDotRule: true,
     },
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'X-Requested-With'
+    },
     stats: 'minimal',
     host: '0.0.0.0',
     watchOptions: DEV_SERVER_WATCH_OPTIONS

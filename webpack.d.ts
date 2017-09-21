@@ -22,6 +22,7 @@ interface WebpackConfig {
     quiet?: boolean;
     noInfo?: boolean;
     watchOptions?: any;
+    headers?: any;
   };
   performance?: {
     hints?: boolean;

@@ -12,6 +12,8 @@ import { routes } from './server.routes';
 import { App } from './mock-api/app';
 import { enableProdMode } from '@angular/core';
 import { UNIVERSAL_PORT } from '../constants';
+import { cors } from './server/cors';
+
 enableProdMode();
 const app = express();
 const api = new App();
@@ -24,6 +26,7 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', 'src');
 
+app.use(cors);
 app.use(compression());
 app.use('/', express.static('dist', { index: false }));
 app.use('/assets', express.static(path.join(__dirname, 'assets'), { maxAge: 30 }));
