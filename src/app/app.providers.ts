@@ -5,6 +5,7 @@ import { ActivityActions } from './activity/activity.actions';
 import { UserActions } from './user/user.actions';
 import { UserService } from './user/user.service';
 import { AuthGuard } from './services/auth.service';
+import { GbifDataSourceService } from './services/data-sources/gbif.datasource.service';
 
 export const APP_PROVIDERS = [
   UserActions,
@@ -12,5 +13,6 @@ export const APP_PROVIDERS = [
   ActivityActions,
   ActivityService,
   AuthGuard,
-  AngularFireAuth
+  AngularFireAuth,
+  GbifDataSourceService
 ];
