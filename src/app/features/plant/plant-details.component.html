@@ -1,3 +1,9 @@
 <p>
     Canonical name: {{(plant$ | async)?.canonicalName}}
 </p>
+
+<agm-map [zoom]="zoom">
+    <ng-container *ngFor="let occurence of occurences$ | async">
+        <agm-marker *ngIf="occurence.decimalLatitude && occurence.decimalLongitude" [latitude]="occurence.decimalLatitude" [longitude]="occurence.decimalLongitude"></agm-marker>
+    </ng-container>
+</agm-map>

@@ -22,7 +22,7 @@ export class GbifDataSourceService {
 
     plantOccurences(scientificName: string) {
         return this.errorWrapper(this.get(`occurrence/search?scientificName=${scientificName}`)
-            .map(res => res.json()));
+            .map(res => res.json().results));
     }
 
     private errorWrapper(call: Observable<Response>) {

@@ -12,10 +12,6 @@
         <button md-raised-button color="accent" type="button" (click)="clearName()" class="clear-button">Clear name</button>
     </form>
 
-    <agm-map [latitude]="lat" [longitude]="lng">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-    </agm-map>
-
     <aya-search value="" (search)="searchTerm($event)"></aya-search>
     <br><br>
     <button id="my-logout-button" md-raised-button color="accent" (click)="logout()">Logout</button>

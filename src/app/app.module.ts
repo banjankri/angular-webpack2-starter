@@ -19,8 +19,6 @@ import { MdSidenavModule, MdCardModule, MdToolbarModule, MdIconModule,
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-import { AgmCoreModule } from '@agm/core';
-
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 import { Store } from '@ngrx/store';
@@ -59,9 +57,6 @@ import { firebaseConfig } from '../firebase.config';
     StyleModule,
     MdSidenavModule, MdCardModule, MdToolbarModule, MdIconModule,
     MdCoreModule, MdMenuModule, MdCommonModule, MdInputModule, MdButtonModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyANsV8dNWD2LIceIjx0s_pe4TCixHgygwg'
-    })
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent],

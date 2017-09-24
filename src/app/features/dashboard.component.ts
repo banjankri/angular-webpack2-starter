@@ -28,9 +28,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
     user: User;
     user$: Observable<User>;
 
-    lat: number = 51.678418;
-    lng: number = 7.809007;
-
     constructor(
       private fb: FormBuilder,
       private http: TransferHttp,

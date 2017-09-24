@@ -1,4 +1,4 @@
 <div>
     <h1>Plants</h1>
-    <a href="" (click)="plantSelected(plant, $event)" *ngFor="let plant of plants$ | async">{{plant.canonicalName}} {{plant.class}}</a> <br/>
+    <p *ngFor="let plant of plants$ | async"><a href="" (click)="plantSelected(plant, $event)">{{plant.canonicalName}} {{plant.class}}</a></p>
 </div>
