@@ -16,9 +16,21 @@ export class GbifDataSourceService {
     }
 
     searchPlantsByQuery(query: string) {
-        return this.http.get(GbifDataSourceService.GBIF_API_URL + `species/search?q=${query}`)
-            .map(res => res.json().results)
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+        return this.errorWrapper(this.get(`species/search?q=${query}`)
+                .map(res => res.json().results));
+    }
+
+    plantOccurences(scientificName: string) {
+        return this.errorWrapper(this.get(`occurrence/search?scientificName=${scientificName}`)
+            .map(res => res.json()));
+    }
+
+    private errorWrapper(call: Observable<Response>) {
+        return call.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    private get(url) {
+        return this.http.get(GbifDataSourceService.GBIF_API_URL + url);
     }
 
     static get GBIF_API_URL(): string {

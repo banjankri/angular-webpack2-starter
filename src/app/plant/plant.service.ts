@@ -13,4 +13,8 @@ export class PlantService {
     search(searchTerm: string): Observable<Plant[]> {
         return this.ds.searchPlantsByQuery(searchTerm);
     }
+
+    plantOccurences(plant: Plant) {
+        return this.ds.plantOccurences(plant.scientificName);
+    }
 }

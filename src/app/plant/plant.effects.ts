@@ -21,7 +21,10 @@ export class PlantEffects {
     @Effect() search = this.actions$.ofType(PlantActions.SEARCH)
         .map(action => action.payload)
         .switchMap(searchTerm => this.plantService.search(searchTerm))
-        .map(activities => {
-            return this.plantActions.plantsLoaded(activities);
-        });
+        .map(activities => this.plantActions.plantsLoaded(activities));
+
+    @Effect() details = this.actions$.ofType(PlantActions.PLANT_SELECTED)
+        .map(action => action.payload)
+        .switchMap(plant => this.plantService.plantOccurences(plant))
+        .map(occurences => this.plantActions.occurencesLoaded(occurences));
 }
